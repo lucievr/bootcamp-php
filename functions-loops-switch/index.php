@@ -1,5 +1,54 @@
-<?php
+//conditions and loops
+<?php if ($condition == true) : ?>
+    <p>
+        My <strong>HTML</strong> code.
+    </p>
+<?php endif; ?>
 
+<?php endif; ?>
+<?php endwhile; ?>
+<?php endfor; ?>
+<?php endforeach; ?>
+
+<?php if (true) : ?>
+<?php elseif : ?>
+<?php endif; ?>
+
+<?php for ($i = 0; $i < 10; $i++) : ?>
+    <div>
+        This is item <?php echo $i+1; ?> of 10
+    </div>
+<?php endfor; ?>
+
+<?php if ($gender == 'male') : ?>
+<h1>Hello, mister</h1>
+<ul class="foo">
+    <?php for ($i = 0; $i < 100; $i++) : ?>
+
+        <li><?= $i ?></li>
+
+    <?php endfor; ?>
+</ul>
+<?php elseif ($gender == 'female') : ?>
+<h1>Hello, madam</h1>
+<?php endif; ?>
+
+<?php
+        // is the current user administrator?
+        $user_is_admin = true;
+    ?>
+    <ul class="menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Eshop</a></li>
+        <li><a href="#">Contact</a></li>
+
+        <?php if ($user_is_admin) : ?>
+            <li><a href="#">Link just for administrators</a></li>
+            <li><a href="#">Another link just for administrators</a></li>
+        <?php endif; ?>
+    </ul>
+
+<?php
 function get_current_year()
 {
     return date('Y');
@@ -23,10 +72,6 @@ function add_two_numbers($first_number, $second_number)
     return $result; // the calculated value is returned
 }
 $foo = add_two_numbers(1, 2);
-
-for ($i = 0; $i < 100; $i++) {
-    // this code will run 100 times
-}
 
 
 //ternary operator
@@ -55,6 +100,23 @@ switch (expression) {
         break;
     default:
         // code to run when none of the previous conditions are true
+        break;
+}
+
+$gender = 'man';
+switch ($gender) {
+    case 'man':
+    case 'male':
+        echo 'You are a male';
+        break;
+    case 'woman':
+    case 'girl':
+    case 'female':
+        echo 'You are a female';
+        break;
+    case 'undecided':
+    default: 
+        echo 'You are something else';
         break;
 }
 
