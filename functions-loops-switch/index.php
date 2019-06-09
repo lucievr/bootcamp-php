@@ -73,6 +73,43 @@ function add_two_numbers($first_number, $second_number)
 }
 $foo = add_two_numbers(1, 2);
 
+//pass by reference I
+function add_item(&$array, $item)
+{
+    $array[] = $item;
+}
+$item = 'abc';
+add_item($array, $item);
+var_dump($array); // [0 => 'abc']
+ 
+add_item($array, 'def');
+var_dump($array); // [0 => 'abc', 1 => 'def']
+
+//pass by reference II
+function my_function(&$bar) 
+{
+    // $bar is a reference to the variable the function is called with
+    $bar++;
+}
+$foo = 1;           // $foo is 1
+my_function($foo);  // $foo is 2
+
+
+function element($element, $innerhtml = '', $attributes = '')
+{
+    return "<{$element} {$attributes}>{$innerhtml}</{$element}>";
+}
+echo element('p').'<br>';                           // <p></p>
+echo element('p', 'some text').'<br>';              // <p>some text</p>
+echo element('p', 'some text', 'class="foo"').'<br>'; // <p class="foo">some text</p>
+
+function convert_weight($value, $unit = 'kg')
+{
+    return $unit == 'kg' ? $value * 2.20462262 : $value / 2.20462262;
+}
+echo convert_weight(1, 'lb').'<br>'; // 0.45359237 - converted 1 lb to kilograms
+echo convert_weight(1, 'kg').'<br>'; // 2.20462262 - converted 1 kg to lbs
+echo convert_weight(1).'<br>';       // 2.20462262 - used default unit kg, converted 1 kg to lbs
 
 //ternary operator
 $owns_a_car = false;
