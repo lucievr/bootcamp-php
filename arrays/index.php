@@ -91,6 +91,8 @@ foreach ($ratings as $rating)
     echo format_rating($rating) . "<br>";
 }
 
+
+
 function get_username($user_id)
 {
     $user_names = [
@@ -106,4 +108,23 @@ echo get_username('user1') . "<br>";
 
 foreach ($ratings as $user_id => $rating) {
     echo get_username($user_id) . " gave " . $movie_name . " a rating of " . format_rating($rating) . "<br>";
+}
+
+
+function get_countryname($country_code)
+{
+    $country_names = [
+        'US' => 'USA',
+        'HU' => 'Hungary',
+        'CZ' => 'Czechia',
+        'AR' => 'Argentina',
+        'DE' => 'Germany',
+        'DK' => 'Denmark',
+        'IN' => 'India'
+    ];
+    return $country_names[$country_code];
+}
+
+foreach ($calling_codes as $country_code => $calling_code) {
+    echo "The calling code of " . get_countryname($country_code) . " is " . $calling_code . "<br>";
 }

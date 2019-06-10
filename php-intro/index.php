@@ -90,11 +90,8 @@ h1 {
 </head>
 <body>
     <header>
-        <h1><?=$website_name?></h1>
-        <nav></nav>
     </header>
     <main>
-        <?=$text?>
     </main>
 </body>
 </html>
